@@ -79,6 +79,7 @@ SimplificationRules::SimplificationRules()
 	Y.setMatchGroup(5, m_matchGroups);
 
 	addRules(simplificationRuleList(A, B, C, X, Y));
+	assertThrow(!m_rules[byte(solidity::Instruction::ADD)].empty(), OptimizerException, "Rule list not properly initialized.");
 }
 
 Pattern::Pattern(solidity::Instruction _instruction, vector<Pattern> const& _arguments):
