@@ -55,6 +55,8 @@ Operators:
 Division always truncates (it is just compiled to the ``DIV`` opcode of the EVM), but it does not truncate if both
 operators are :ref:`literals<rational_literals>` (or literal expressions).
 
+Modulus with both left and right positive operands always results in a positive integer. The result of modulus with negative integers depends on the sign of the left operand: ``int256(-5) % int256(-2) == int256(-1)`` and ``int256(5) % int256(-2) == int256(1)``, respectively.
+
 Division by zero and modulus with zero throws a runtime exception.
 
 The result of a shift operation is the type of the left operand. The
